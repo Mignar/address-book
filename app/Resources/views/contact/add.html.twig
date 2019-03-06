@@ -1,0 +1,134 @@
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<div class="col-10 col-md-8">
+    {{ form_start(form) }}
+    {{ form_row(form._token) }}
+
+    <h2>{{ title }}</h2>
+    
+    <div class="form-group row pt-4">
+        <label
+            for="{{ form.firstname.vars.name }}"
+            class="col-sm-3 col-lg-2 col-form-label text-muted"
+        >{{ form.firstname.vars.label }}</label>
+
+        <div class="col-sm-9 col-lg-10">
+            {{ form_widget(form.firstname, {attr: {class: 'form-control'}}) }}
+            {{ form_errors(form.firstname) }}
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label
+            for="{{ form.lastname.vars.name }}"
+            class="col-sm-3 col-lg-2 col-form-label text-muted"
+        >{{ form.lastname.vars.label }}</label>
+
+        <div class="col-sm-9 col-lg-10">
+            {{ form_widget(form.lastname, {attr: {class: 'form-control'}}) }}
+            {{ form_errors(form.lastname) }}
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label
+            for="{{ form.email.vars.name }}"
+            class="col-sm-3 col-lg-2 col-form-label text-muted"
+        >{{ form.email.vars.label }}</label>
+
+        <div class="col-sm-9 col-lg-10">
+            {{ form_widget(form.email, {attr: {class: 'form-control'}}) }}
+            {{ form_errors(form.email) }}
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label
+            for="{{ form.phonenumber.vars.name }}"
+            class="col-sm-3 col-lg-2 col-form-label text-muted"
+        >{{ form.phonenumber.vars.label }}</label>
+
+        <div class="col-sm-9 col-lg-10">
+            {{ form_widget(form.phonenumber, {attr: {class: 'form-control'}}) }}
+            {{ form_errors(form.phonenumber) }}
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label
+            for="{{ form.birthday.vars.name }}"
+            class="col-sm-3 col-lg-2 col-form-label text-muted"
+        >{{ form.birthday.vars.label }}</label>
+
+        <div class="col-sm-9 col-lg-10">
+            {{ form_widget(form.birthday) }}
+            {{ form_errors(form.birthday) }}
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label
+            for="{{ form.street.vars.name }}"
+            class="col-sm-3 col-lg-2 col-form-label text-muted"
+        >{{ form.street.vars.label }}</label>
+
+        <div class="col-sm-9 col-lg-10">
+            {{ form_widget(form.street, {attr: {class: 'form-control'}}) }}
+            {{ form_errors(form.street) }}
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label
+            for="{{ form.zip.vars.name }}"
+            class="col-sm-3 col-lg-2 col-form-label text-muted"
+        >{{ form.zip.vars.label }}</label>
+
+        <div class="col-sm-9 col-lg-10">
+            {{ form_widget(form.zip, {attr: {class: 'form-control'}}) }}
+            {{ form_errors(form.zip) }}
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label
+            for="{{ form.city.vars.name }}"
+            class="col-sm-3 col-lg-2 col-form-label text-muted"
+        >{{ form.city.vars.label }}</label>
+
+        <div class="col-sm-9 col-lg-10">
+            {{ form_widget(form.city, {attr: {class: 'form-control'}}) }}
+            {{ form_errors(form.city) }}
+        </div>
+    </div>
+
+    <div class="form-group row pb-3">
+        <label
+            for="{{ form.country.vars.name }}"
+            class="col-sm-3 col-lg-2 col-form-label text-muted"
+        >{{ form.country.vars.label }}</label>
+
+        <div class="col-sm-9 col-lg-10">
+            {{ form_widget(form.country) }}
+            {{ form_errors(form.country) }}
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-between mt-3">
+        <a
+            href="{{ path('contact') }}"
+            role="button"
+        >
+            <i class="material-icons md-36">keyboard_backspace</i>
+        </a>
+
+        <button name="submit" class="btn btn-outline-primary w-25">Save</button>
+    </div>
+
+    {{ form_end(form, {'render_rest': false}) }}
+</div>
+
+{% endblock %}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <title>{% block title %}Addressbook{% endblock %}</title>
+
+        {% block stylesheets %}{% endblock %}
+        
+        {% block head_css %}{% endblock %}
+
+        {% block head_js %}{% endblock %}
+
+        <link href="{{ asset('build/app.css') }}" rel="stylesheet">
+        <script src="{{ asset('build/runtime.js') }}"></script>
+        <script src="{{ asset('build/app.js') }}"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row justify-content-center text-center">
+                <div class="col-12 col-md-6 py-3 d-flex justify-content-center">
+                    {% include('layouts/alert.html.twig') %}
+                </div>
+            </div>
+
+            <div class="row justify-content-center py-5">
+                {% block body %}{% endblock %}
+            </div>
+        </div>
+
+        {% block javascripts %}{% endblock %}
+        
+    </body>
+</html>

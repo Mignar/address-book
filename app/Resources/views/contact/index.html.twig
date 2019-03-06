@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="col-12">
+
+    <h2>Contacts</h2>
+
+    <div class="row pt-5 pb-2">
+        <div class="col">
+            <a
+                class="btn btn-outline-primary btn-sm"
+                href="{{ path('contact_create') }}"
+                role="button"
+            >Add contact</a>
+        </div>
+    </div>
+
+    <table class="table table-hover mt-2" id="contact-index-table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone Number</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for contact in contacts %}
+                <tr>
+                    <td>
+                        <a href="{{ path('contact_show', {'id': contact.id}) }}">
+                            {{ contact.fullname }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="mailto:{{ contact.email }}">
+                            {{ contact.email }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="tel:{{ contact.phonenumber }}">
+                            {{ contact.phonenumber }}
+                        </a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td
+                        colspan="3"
+                        class="text-center"
+                    >No entries
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

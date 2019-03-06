@@ -1,0 +1,138 @@
+@import "~bootstrap/scss/bootstrap";
+
+// Variables
+@import 'variables';
+
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+
+body {
+    background: $primary-background;
+    color: $primary-color;
+    font-family: 'Roboto', sans-serif;
+}
+
+a, a:hover {
+    color: inherit;
+}
+
+select option {
+    color: black;
+}
+
+
+
+.table {
+    color: inherit;
+}
+
+#contact-index-table tbody tr:hover {
+    color: inherit;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+#contact-show-table {
+    border-spacing: 0 13px;
+    border-collapse: separate;
+}
+
+
+
+.btn {
+    line-height: 1.9;
+    border: 2px solid;
+    font-weight: 500;
+    border-radius: 0;
+
+    &:hover, &:focus {
+        color: white;
+        background-color: rgba(255, 255, 255, 0.2);
+        border-color: $primary-color;
+        box-shadow: none;
+
+    }
+}
+
+.btn-outline-primary {
+    color: $primary-color;
+
+    &:active {
+        color: inherit;
+        background-color: rgba(255, 255, 255, 0.5) !important;
+        border-color: white !important;
+    }
+}
+
+
+.btn-outline-danger {
+    color: white;
+    border-color: white;
+
+    &:hover {
+        background-color: red;
+    }
+}
+
+
+.close > span:hover {
+    color: black;
+}
+
+.close span {
+    text-shadow: none;
+    color: $primary-color;
+    transition: .2s color;
+}
+
+#alert-modal {
+    border-radius: 0;
+    .close span {
+        color: black;
+    }
+}
+
+
+.material-icons.md-36 { font-size: 36px; }
+
+
+.modal {
+    color: black;
+}
+
+.modal-content {
+    background: $secondary-background;
+    color: white;
+    border: 0;
+    border-radius: 0;
+}
+
+.modal-header, .modal-footer {
+    border: none;
+}
+
+
+.form-control {
+    border-radius: 0;
+    border: none;
+    color: white;
+    border-bottom: 1px solid;
+    border-color: rgba(255, 255, 255, 0.1);
+    background: transparent;
+
+    &:focus {
+        background: inherit;
+        color: inherit;
+        border-bottom: 2px solid;
+        border-color: white;
+        box-shadow: none;
+    }
+}
+
+
+.text-muted {
+    color: rgba(255, 255 ,225, 0.7);
+}

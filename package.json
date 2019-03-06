@@ -1,0 +1,23 @@
+{
+  "name": "address-book",
+  "version": "1.0.0",
+  "description": "Job presentation",
+  "scripts": {
+    "dev": "npm run encore -- dev",
+    "watch": "npm run encore -- dev --watch",
+    "prod": "npm run encore -- prod",
+    "production": "npm run encore -- prod",
+    "encore": "encore"
+  },
+  "author": "Alexander Krug",
+  "devDependencies": {
+    "@symfony/webpack-encore": "^0.24.0",
+    "node-sass": "^4.11.0",
+    "sass-loader": "^7.0.1"
+  },
+  "dependencies": {
+    "bootstrap": "^4.3.1",
+    "jquery": "^3.3.1",
+    "popper.js": "^1.14.7"
+  }
+}

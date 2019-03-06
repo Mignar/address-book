@@ -1,0 +1,104 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<div class="col col-md-6">
+    <h2 class="pb-4 d-flex justify-content-between">
+        <span class="align-self-center">{{ contact.fullname }}</span>
+    </h2>
+
+    <table width="100%" id="contact-show-table">
+        <tbody>
+            <tr>
+                <td class="text-muted">Email:</td>
+                <td>{{ contact.email }}</td>
+            </tr>
+            <tr>
+                <td class="text-muted">Phone:</td>
+                <td>{{ contact.phonenumber }}</td>
+            </tr>
+            <tr>
+                <td class="text-muted">Address:</td>
+                <td>
+                    <span>
+                        {{ contact.street }} <br>
+                        {% if contact.zip %}
+                        {{ contact.zip }}, 
+                        {% endif %} {{ contact.city }} <br>
+                        {{ contact.countryName }}
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="text-muted">Birthday:</td>
+                {% if contact.birthday %}
+                <td>{{ contact.birthday | date('d/m/Y') }}</td>
+                {% endif %}
+            </tr>
+        </tbody>
+    </table>
+
+
+    <div class="pt-3 d-flex justify-content-between">
+        <div class="d-flex align-items-center">
+            <a
+                href="{{ path('contact') }}"
+                role="button"
+            >
+                <i class="material-icons md-36">
+                    keyboard_backspace
+                </i>
+            </a>
+        </div>
+        <div>
+            <a 
+                role="button"
+                class="btn btn-outline-primary btn-sm mr-2"
+                href="{{ path('contact_edit', {'id': contact.id}) }}"
+            >Edit</a>
+            <a 
+                data-target="#delete-modal"
+                data-toggle="modal"
+                class="btn btn-outline-primary btn-sm"
+                role="button"
+            >Delete</a>
+        </div>
+    </div>
+</div>
+
+<div
+    class="modal fade"
+    id="delete-modal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="delete-modal"
+    aria-hidden="true"
+>
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="delete-modal">Delete contact</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to delete <b>{{ contact.fullname }}</b> from your contactlist?
+            </div>
+            <div class="modal-footer">
+                <button
+                    type="button"
+                    class="btn btn-outline-primary"
+                    data-dismiss="modal"
+                >Cancel</button>
+                <a
+                    role="button"
+                    class="btn btn-outline-danger"
+                    href="{{ path('contact_destroy', {'id': contact.id}) }}"
+                >Delete</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
